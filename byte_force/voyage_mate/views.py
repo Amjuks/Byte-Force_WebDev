@@ -22,7 +22,7 @@ class TagPhraseAPIView(View):
     
 class LoginView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
-        return render(request, 'storyapp/login.html')
+        return render(request, 'voyage_mate/sign-in.html')
     
     def post(self, request: HttpRequest) -> HttpResponse:
         username = request.POST["username"]
@@ -31,9 +31,9 @@ class LoginView(View):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("storyapp:dashboard"))
+            return HttpResponseRedirect(reverse("voyage_mate:index"))
         else:
-            return render(request, "storyapp/sign-in.html", {
+            return render(request, "voyage_mate/sign-in.html", {
                 "message": "Invalid username and/or password."
             })
 
@@ -60,9 +60,9 @@ class RegisterView(View):
                 "message": "Username already taken."
             })
         login(request, user)
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("voyage_mate:index"))
 
 class LogoutView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         logout(request)
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("voyage_mate:index"))

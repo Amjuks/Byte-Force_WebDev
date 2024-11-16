@@ -39,7 +39,8 @@
     margin: 0 20px;
   }
   
-  nav ul li a {
+  nav ul li a,
+  .nav-link {
     color: white;
     font-size: 18px;
     font-weight: 600;
@@ -66,8 +67,13 @@
     margin-left: 15px;
   }
   
+
   nav .auth-buttons .green-btn:hover {
     background-color: #16a085;
+  }
+
+  .nav-link {
+    padding: 0 1rem;
   }
   
   /* Hero Section Styles */
