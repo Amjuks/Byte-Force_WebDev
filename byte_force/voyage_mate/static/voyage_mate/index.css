@@ -114,6 +114,14 @@
     transition: background-color 0.3s ease;
   }
   
+  .hero-main {
+    color: black;
+    background-color: whitesmoke;
+    padding: 3rem;
+    opacity: 0.8;
+    border-radius: 30px;
+  }
+
   .hero .green-btn:hover {
     background-color: #16a085;
   }
