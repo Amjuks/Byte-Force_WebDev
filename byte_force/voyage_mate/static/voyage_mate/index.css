@@ -72,7 +72,7 @@
   
   /* Hero Section Styles */
   .hero {
-    background-image: url('https://source.unsplash.com/1600x900/?travel');
+    background-image: url("{% static 'voyage_mate/images/bangkok.jpeg'  %}");
     background-size: cover;
     background-position: center;
     height: 100vh;
