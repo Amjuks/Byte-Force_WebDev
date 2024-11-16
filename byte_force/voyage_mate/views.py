@@ -28,6 +28,10 @@ class IternaryForm(View):
     def get(self, request):
         return render(request, 'voyage_mate/itinerary-form.html')
 
+class NotificationView(View):
+    def get(self, request):
+        return render(request, 'voyage_mate/notifications.html')
+
 class LoginView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         return render(request, 'voyage_mate/sign-in.html')
