@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - Voyager Mate</title>
-  <link rel="stylesheet" href="register.css">
-</head>
-<body>
+{% extends 'voyage_mate/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'voyage_mate/register.css' %}">
+{% endblock %}
+
+{% block content %}
   <div class="register-container">
-    <form class="register-form" action="/register" method="post">
+    <form class="register-form" action="{% url 'voyage_mate:register' %}" method="post">
+      {% csrf_token %}
       <h2>Create an Account</h2>
 
       <!-- Username Field -->
@@ -27,8 +27,7 @@
       <button type="submit">Register</button>
 
       <!-- Login Link -->
-      <p>Already have an account? <a href="sign-in.html">Login here</a></p>
+      <p>Already have an account? <a href="{% url 'voyage_mate:login' %}">Login here</a></p>
     </form>
   </div>
-</body>
-</html>
+{% endblock %}
