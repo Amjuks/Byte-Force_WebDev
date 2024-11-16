@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyager Mate - Byte Force
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      color: #333;
+      line-height: 1.6;
+      background: #f5f5f5;
+    }
+    .container {
+      width: 90%;
+      margin: auto;
+      overflow: hidden;
+    }
+    /* Navbar */
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    nav ul li {
+      margin: 0 1rem;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    /* Hero Section */
+    .hero {
+      background: url('https://source.unsplash.com/1600x900/?travel') no-repeat center center/cover;
+      color: #00000000;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    /* Search Bar */
+    .search-bar {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .search-bar input, .search-bar button {
+      padding: 0.8rem;
+      border: none;
+      outline: none;
+      margin: 0.5rem;
+    }
+    .search-bar button {
+      background: #ff7b54;
+      color: #fff;
+      cursor: pointer;
+    }
+    /* Popular Destinations */
+    .destinations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .destination {
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .destination img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .destination h3 {
+      margin: 1rem 0;
+      color: #ff7b54;
+    }
+    .destination:hover {
+      transform: scale(1.05);
+    }
+    /* Testimonials */
+    .testimonials {
+      background: #eee;
+      padding: 2rem 0;
+    }
+    .testimonial {
+      text-align: center;
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+    .testimonial p {
+      font-style: italic;
+    }
+    .testimonial h3 {
+      color: #ff7b54;
+    }
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Explore the World with Us</h1>
+      <p>Your adventure begins here</p>
+    </div>
+  </section>
+
+  <!-- Search Bar -->
+  <section class="search-bar">
+    <input type="text" placeholder="Search for destinations...">
+    <button>Search</button>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="destinations container">
+    <div class="destination">
+      <img src="https://source.unsplash.com/300x200/?paris" alt="Paris">
+      <h3>Paris, France</h3>
+    </div>
+    <div class="destination">
+      <img src="https://source.unsplash.com/300x200/?tokyo" alt="Tokyo">
+      <h3>Tokyo, Japan</h3>
+    </div>
+    <div class="destination">
+      <img src="https://source.unsplash.com/300x200/?newyork" alt="New York">
+      <h3>New York, USA</h3>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials container">
+    <div class="testimonial">
+      <p>"The best travel experience I've ever had! Highly recommend."</p>
+      <h3>- Alex Johnson</h3>
+    </div>
+    <div class="testimonial">
+      <p>"Unforgettable adventures and amazing destinations!"</p>
+      <h3>- Sarah Lee</h3>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Explore the World. All rights reserved.</p>
+  </footer>
+</body>
+</html>
