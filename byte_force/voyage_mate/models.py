@@ -8,6 +8,7 @@ class Destination(models.Model):
     place = models.CharField(max_length=255)
     description= models.TextField()
     image_url=models.URLField()
+    country=models.TextField()
 
     def __str__(self):
         return self.place 
@@ -77,12 +78,14 @@ class City(models.Model):
     
 
 class Connector(models.Model):
-    country = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='connectors')
+    country = models.CharField(max_length=255)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='connectors')
 
     def __str__(self):
         return f"Connector: {self.country.place} - {self.city.place}"
     
+
+
     
     
     
