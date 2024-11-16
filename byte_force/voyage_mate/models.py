@@ -2,10 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-...
 class Destination(models.Model):
-    Place = models.CharField(max_length=255)
-    description= models.TextField(max_lenght=255)
+    place = models.CharField(max_length=255)
+    description= models.TextField(max_length=255)
     image_url=models.URLField()
 
     def __str__(self):
@@ -20,6 +19,3 @@ class Review(models.Model):
 
     def __str__(self):
         return f'Review by {self.user.username} for {self.destination.name}'  # display of the review
-   
-
-    
