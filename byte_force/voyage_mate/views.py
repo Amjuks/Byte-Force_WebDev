@@ -18,5 +18,5 @@ class IndexView(View):
 class TagPhraseAPIView(View):
     def get(self, request, country: str):
         
-        phrase = TagPhrase.objects.get(country=country)
+        phrase = TagPhrase.objects.get(country=country).phrase
         return JsonResponse({'phrase': phrase})
