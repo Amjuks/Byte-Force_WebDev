@@ -1,0 +1,32 @@
+{% extends 'voyage_mate/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'voyage_mate/itinerary.css' %}">
+<style>
+    /* .itinerary {
+        background-image: url("{% static 'voyage_mate/images/lake_itinerary.jpg' %}");
+    } */
+    main {
+        background-image: url("{% static 'voyage_mate/images/lake_itinerary.jpg' %}");
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1>{{ info.destination }}</h1>
+    <em>Itinerary for {{ info.number_of_days }} days</em>
+</header>
+
+<div class="itinerary">
+    {% for day in info.itinerary %}
+    <div class="day">
+        <h2>Day {{ forloop.counter }}</h2>
+        <p>{{ day }}</p>
+    </div>
+    {% endfor %}
+    
+</div>
+
+{% endblock %}

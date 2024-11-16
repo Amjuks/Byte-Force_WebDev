@@ -1,0 +1,45 @@
+{% extends 'voyage_mate/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'voyage_mate/city.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1>Welcome to Mumbai!</h1>
+</header>
+
+<section class="city-info">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Mumbai_skyline.jpg/1920px-Mumbai_skyline.jpg" alt="Mumbai Skyline">
+    <div class="city-summary">
+        <h2>About Mumbai</h2>
+        <p>
+            Mumbai, also known as Bombay, is the financial capital of India and one of the most populous cities in the world. Known for its vibrant culture, bustling streets, and iconic landmarks like the Gateway of India, Mumbai is a melting pot of different cultures, cuisines, and traditions. It is home to Bollywood, the heart of the Indian film industry, and offers a variety of experiences for tourists ranging from historical monuments to modern skyscrapers.
+        </p>
+    </div>
+</section>
+
+<section class="itinerary-section">
+    <h3>Plan Your Itinerary</h3>
+    <p>Tell us how many days you’ll be spending in Mumbai!</p>
+
+    <!-- Itinerary Form -->
+    <form action="{% url 'voyage_mate:itinerary' %}" method="POST">
+        <label for="days">Number of Days: </label>
+        <input type="number" id="days" name="days" min="1" required>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<!-- Travel Links Section -->
+<section class="travel-links">
+    <h3>Book Your Travel</h3>
+    <p>Check out the best travel websites to plan your trip to Mumbai!</p>
+    <div class="button-container">
+        <a href="https://www.booking.com" class="travel-button" target="_blank">Booking.com</a>
+        <a href="https://www.airbnb.com" class="travel-button" target="_blank">Airbnb</a>
+        <a href="https://www.makemytrip.com" class="travel-button" target="_blank">MakeMyTrip</a>
+    </div>
+</section>
+{% endblock %}

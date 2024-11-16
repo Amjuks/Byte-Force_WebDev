@@ -1,3 +1,18 @@
+TRAVEL_PROMPT = """You are a travel planner. I want you to generate a travel itinerary in JSON format. Follow these details carefully:  
+
+- Include a mix of cultural experiences, nature exploration, and leisure activities.  
+- Focus on iconic landmarks, peaceful experiences, and scenic views.  
+- Activities should not be rushed; maintain a balanced pace.  
+
+- Avoid repeating activities.  
+- The plans should align with typical travel preferences for destination.  
+- Ensure each day offers something unique.
+
+This is the user's requirements:
+{}
+
+Please generate the itinerary based on this input."""
+
 TRAVEL_ITINERARY_SCHEMA = {
     "type": "json_schema",
     "json_schema": {

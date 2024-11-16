@@ -13,6 +13,7 @@ from django.urls import reverse
 from .models import TagPhrase
 
 from dotenv import load_dotenv
+from voyage_mate.travel_schema import TRAVEL_ITINERARY_SCHEMA, TRAVEL_PROMPT
 
 load_dotenv()
 
@@ -40,6 +41,7 @@ class IternaryFormView(View):
         return render(request, 'voyage_mate/itinerary-form.html')
 
     def post(self, request):
+        context = {}
         data = {
             "Which country do you want to travel?": request.POST.get('country', ''),
             "How many days are you planning to travel?": request.POST.get('days', ''),
@@ -55,14 +57,38 @@ class IternaryFormView(View):
         
         info = "\n\n".join(f"{key}\n{value}" for key, value in data.items() if value)
         # For debugging or testing purposes
+        info = TRAVEL_PROMPT.format(info)
         print(info)
 
-        return redirect(reverse("voyage_mate:itinerary"))
+        response = openai_client.chat.completions.create(
+            model="gpt-4o-mini-2024-07-18",
+            response_format=TRAVEL_ITINERARY_SCHEMA,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": info
+                        },
+                    ]
+                }
+            ]
+        )
+
+        context['info'] = json.loads(response.choices[0].message.content)
+        print(context['info'])
+
+        return render(request, 'voyage_mate/itinerary.html', context)
 
 class NotificationView(View):
     def get(self, request):
         return render(request, 'voyage_mate/notifications.html')
 
+class ChatView(View):
+    def get(self, request):
+        return render(request, 'voyage_mate/chat.html')
+    
 class LoginView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         return render(request, 'voyage_mate/sign-in.html')

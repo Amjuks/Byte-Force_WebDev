@@ -1,0 +1,71 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+main {
+    margin-top: 4.5rem;
+  }
+
+header {
+    /* background-color: #333; */
+    color: black;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+.itinerary {
+    /* max-width: 1200px; */
+    /* margin: 2rem auto; */
+    padding: 1rem;
+    /* background-color: #fff; */
+    /* border-radius: 10px; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.day {
+    text-align: center;
+    background-color: #fafafa;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+}
+
+.day h2 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.day p {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+strong {
+    font-weight: bold;
+    color: #333;
+}
+
+em {
+    font-size: 1.5rem;
+    color: black;
+}
