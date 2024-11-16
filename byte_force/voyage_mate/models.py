@@ -75,5 +75,14 @@ class City(models.Model):
     def __str__(self):
         return self.place 
     
+
+class Connector(models.Model):
+    country = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name='connectors')
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='connectors')
+
+    def __str__(self):
+        return f"Connector: {self.country.place} - {self.city.place}"
+    
+    
     
     
