@@ -1,123 +1,225 @@
-
+/* Reset and global styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body {
-  color: hsl(0, 0%, 100%);
-  line-height: 1.6;
-  background: #000000;
-}
-.container {
-  width: 90%;
-  margin: auto;
-  overflow: hidden;
-}
-/* Navbar */
-header {
-  background: #333;
-  color: #fff;
-  padding: 1rem 0;
-  text-align: center;
-}
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-}
-nav ul li {
-  margin: 0 1rem;
-}
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-/* Hero Section */
-.hero {
-  background: url('https://source.unsplash.com/1600x900/?travel') no-repeat center center/cover;
-  color: #ffffff;
-  height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.hero h1 {
-  font-size: 3rem;
-}
-.hero p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-}
-/* Search Bar */
-.search-bar {
-  margin: 2rem 0;
-  text-align: center;
-}
-.search-bar input, .search-bar button {
-  padding: 0.8rem;
-  border: none;
-  outline: none;
-  margin: 0.5rem;
-}
-.search-bar button {
-  background: #ff7b54;
-  color: #fff;
-  cursor: pointer;
-}
-/* Popular Destinations */
-.destinations {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin: 2rem 0;
-}
-.destination {
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  width: 300px;
-  text-align: center;
-  transition: transform 0.3s;
-}
-.destination img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.destination h3 {
-  margin: 1rem 0;
-  color: #ff7b54;
-}
-.destination:hover {
-  transform: scale(1.05);
-}
-/* Testimonials */
-.testimonials {
-  background: #eee;
-  padding: 2rem 0;
-}
-.testimonial {
-  text-align: center;
-  max-width: 600px;
-  margin: 1rem auto;
-}
-.testimonial p {
-  font-style: italic;
-}
-.testimonial h3 {
-  color: #ff7b54;
-}
-/* Footer */
-footer {
-  background: #811515;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* Navbar Styles */
+  nav {
+    background-color: #2C3E50;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  nav ul li a:hover {
+    color: #1abc9c;
+    transition: color 0.3s ease;
+  }
+  
+  nav .auth-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  nav .auth-buttons button {
+    background-color: #1abc9c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    margin-left: 15px;
+  }
+  
+  nav .auth-buttons button:hover {
+    background-color: #16a085;
+  }
+  
+  /* Hero Section Styles */
+  .hero {
+    background-image: url('https://source.unsplash.com/1600x900/?travel');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .hero h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.7;
+    animation: fadeIn 2s ease-in-out 1s;
+  }
+  
+  .hero button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #1abc9c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero button:hover {
+    background-color: #16a085;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  /* Destinations Section Styles */
+  .destinations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .destination {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .destination:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .destination img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .destination h3 {
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    background-color: #f4f4f4;
+    margin: 0;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #2C3E50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  footer a {
+    color: #1abc9c;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .modal button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .modal button:hover {
+    background-color: #16a085;
+  }
+  
