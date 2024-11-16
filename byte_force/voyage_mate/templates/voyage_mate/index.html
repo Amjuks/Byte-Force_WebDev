@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'voyage_mate/index.css' %}">
 <style> 
     .hero {
-        background-image: url("{% static 'voyage_mate/images/giphy.webp' %}");
+        background-image: url("{% static 'voyage_mate/images/Hiking Gif.gif' %}");
     }
 
     .destinations {
@@ -31,12 +31,15 @@
 
     <!-- Hero Section -->
     <section class="hero">
+      <div class="hero-main">
         <h1>Voyage Mate</h1>
         <p>Travel like a local,
             <br>
             Explore like a pro.
         </p>
         <a href="{% url 'voyage_mate:itinerary' %}" class="green-btn">Start Your Journey</a>
+      </div>
+
     </section>
 
     <!-- Destinations Section -->
