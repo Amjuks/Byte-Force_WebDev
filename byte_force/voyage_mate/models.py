@@ -47,7 +47,7 @@ class TagPhrase(models.Model):
             cls.objects.create(country=country, phrase=phrase).save()
 
     def __str__(self):
-        return f"{self.phrase} for {self.destination.name}"
+        return f"{self.phrase} for {self.country}"
     
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')  
