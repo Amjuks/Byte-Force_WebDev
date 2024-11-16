@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Destination(models.Model):
     place = models.CharField(max_length=255)
-    description= models.TextField(max_length=255)
+    description= models.TextField()
     image_url=models.URLField()
 
     def __str__(self):
@@ -58,7 +58,7 @@ class Notification(models.Model):
     def __str__(self):
         return f"Notification for {self.user.username} - {self.message[:20]}..."  # Display part of the message
     
-class Message(models.model):
+class Message(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE )
     message = models.TextField()
     country = models.CharField(max_length=200)
