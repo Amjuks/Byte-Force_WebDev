@@ -1,3 +1,5 @@
+import json
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -20,8 +22,6 @@ class Review(models.Model):
     def __str__(self):
         return f'Review by {self.user.username} for {self.destination.name}'  # display of the review
     
-
-    
 class Itinerary(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True)  
     destination = models.ForeignKey('Destination', on_delete=models.CASCADE)  # Reference to Destination model
@@ -32,17 +32,22 @@ class Itinerary(models.Model):
 
     def __str__(self):
         return f"Itinerary for {self.destination.name} ({self.num_days} days)"
-    
-from django.db import models
-from .models import Destination
 
-class Tag(models.Model):
+class TagPhrase(models.Model):
+    country = models.CharField(max_length=10)
     phrase = models.CharField(max_length=100)  # A short phrase describing the location
-    destination = models.ForeignKey(Destination, related_name='tags', on_delete=models.CASCADE) 
-    created_at = models.DateTimeField(auto_now_add=True)  # Automatically set when the tag was created
+
+    @classmethod
+    def update_phrases(cls):
+        phrases = json.load(open('voyage_mate/tag_phrases.json'))
+
+        cls.objects.all().delete()
+
+        for country, phrase in phrases.items():
+            cls.objects.create(country=country, phrase=phrase).save()
 
     def __str__(self):
-        return f"{self.phrase} for {self.destination.name}"
+        return f"{self.phrase} for {self.country}"
     
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')  
@@ -51,9 +56,13 @@ class Notification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the notification was created
 
     def __str__(self):
+<<<<<<< HEAD
         return f"Notification for {self.user.username} - {self.message[:20]}..."  # Display part of the message
 
 
    
 
     
+=======
+        return f"Notification for {self.user.username} - {self.message[:20]}..."  # Display part of the message
+>>>>>>> f7829add5e600b1c6545cad5c57583a7400831f5
