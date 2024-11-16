@@ -189,3 +189,7 @@
   footer a:hover {
     text-decoration: underline;
   }
+  
+  .bell-icon {
+    color: white;
+   }
