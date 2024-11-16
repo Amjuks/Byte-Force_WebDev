@@ -1,72 +1,29 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voyager Mate - Byte Force
-  </title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="{% static 'voyage_mate/index.css' %}">
-</head>
-<body>
-  <!-- Navbar -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<div class="destination">
+    <img src="https://source.unsplash.com/300x200/?tokyo" alt="Tokyo">
+    <h3>Tokyo, Japan</h3>
+  </div>
+  <div class="destination">
+    <img src="https://source.unsplash.com/300x200/?newyork" alt="New York">
+    <h3>New York, USA</h3>
+  </div>
+</section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div>
-      <h1>Explore the World with Us</h1>
-      <p>Your adventure begins here</p>
-    </div>
-  </section>
+<!-- Testimonials -->
+<section class="testimonials container">
+  <div class="testimonial">
+    <p>"The best travel experience I've ever had! Highly recommend."</p>
+    <h3>- Alex Johnson</h3>
+  </div>
+  <div class="testimonial">
+    <p>"Unforgettable adventures and amazing destinations!"</p>
+    <h3>- Sarah Lee</h3>
+  </div>
+</section>
 
-  <!-- Search Bar -->
-  <section class="search-bar">
-    <input type="text" placeholder="Search for destinations...">
-    <button>Search</button>
-  </section>
-
-  <!-- Popular Destinations -->
-  <section class="destinations container">
-    <div class="destination">
-      <img src="https://source.unsplash.com/300x200/?paris" alt="Paris">
-      <h3>Paris, France</h3>
-    </div>
-    <div class="destination">
-      <img src="https://source.unsplash.com/300x200/?tokyo" alt="Tokyo">
-      <h3>Tokyo, Japan</h3>
-    </div>
-    <div class="destination">
-      <img src="https://source.unsplash.com/300x200/?newyork" alt="New York">
-      <h3>New York, USA</h3>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials container">
-    <div class="testimonial">
-      <p>"The best travel experience I've ever had! Highly recommend."</p>
-      <h3>- Alex Johnson</h3>
-    </div>
-    <div class="testimonial">
-      <p>"Unforgettable adventures and amazing destinations!"</p>
-      <h3>- Sarah Lee</h3>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Explore the World. All rights reserved.</p>
-  </footer>
+<!-- Footer -->
+<footer>
+  <p>&copy; 2024 Explore the World. All rights reserved.</p>
+</footer>
 </body>
 </html>
