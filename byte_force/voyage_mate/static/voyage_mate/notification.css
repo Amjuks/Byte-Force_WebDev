@@ -7,6 +7,10 @@ body {
     color: #333;
   }
   
+  main {
+    margin-top: 10rem;
+  }
+
   .notification-container {
     width: 80%;
     max-width: 900px;

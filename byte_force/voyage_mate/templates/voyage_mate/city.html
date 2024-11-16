@@ -2,7 +2,10 @@
 {% load static %}
 
 {% block styles %}
+<link rel="stylesheet" href="{% static 'voyage_mate/city.css' %}">
+{% endblock %}
 
+{% block content %}
 <header>
     <h1>Welcome to Mumbai!</h1>
 </header>
@@ -22,7 +25,7 @@
     <p>Tell us how many days you’ll be spending in Mumbai!</p>
 
     <!-- Itinerary Form -->
-    <form action="your-url-here" method="POST">
+    <form action="{% url 'voyage_mate:itinerary' %}" method="POST">
         <label for="days">Number of Days: </label>
         <input type="number" id="days" name="days" min="1" required>
         <button type="submit">Submit</button>
@@ -39,3 +42,4 @@
         <a href="https://www.makemytrip.com" class="travel-button" target="_blank">MakeMyTrip</a>
     </div>
 </section>
+{% endblock %}
