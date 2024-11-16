@@ -11,7 +11,7 @@ from django.views import View
 from django.urls import reverse
 from .models import ChatRoom, ChatMessage
 
-from .models import TagPhrase, Itinerary
+from .models import TagPhrase, Itinerary, City
 
 from dotenv import load_dotenv
 from voyage_mate.travel_schema import TRAVEL_ITINERARY_SCHEMA, TRAVEL_PROMPT
@@ -26,7 +26,9 @@ openai_client = openai.OpenAI(api_key=openai_api_key)
 # Create your views here.
 class IndexView(View):
     def get(self, request):
-        return render(request, 'voyage_mate/index.html')
+        context = {}
+        context['cities'] = City.objects.all()[:9]
+        return render(request, 'voyage_mate/index.html', context)
     
 class TagPhraseAPIView(View):
     def get(self, request, country: str):
@@ -90,6 +92,10 @@ class IternaryFormView(View):
         ).save()
 
         return render(request, 'voyage_mate/itinerary.html', context)
+
+class CityView(View):
+    def get(self, request):
+        return render(request, 'voyage_mate/city.html')    
 
 class NotificationView(View):
     def get(self, request):

@@ -42,7 +42,13 @@
     <!-- Destinations Section -->
     <section id="destinations" class="destinations">
      <h1 class="destination-header">Where do you want to travel this time?</h1>
-        
+     {% for city in cities %}
+     <a class="destination" href="{% url 'voyage_mate:city' city_id=city.id %}">
+        <img src="{{ city.image_url }}" alt="Mumbai">
+        <h3>{{ city.place }}</h3>
+     </a>
+     {% endfor %}
+
         <div class="destination">
         <img src="{% static 'voyage_mate/images/mumbai.jpg' %}" alt="Mumbai">
         <h3>Mumbai, India</h3>
