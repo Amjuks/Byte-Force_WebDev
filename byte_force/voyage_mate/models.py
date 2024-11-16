@@ -25,14 +25,14 @@ class Review(models.Model):
     
 class Itinerary(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True)  
-    destination = models.ForeignKey('Destination', on_delete=models.CASCADE)  # Reference to Destination model
-    num_days = models.IntegerField()  
+    destination = models.TextField()
+    num_days = models.IntegerField() 
     itinerary_details = models.TextField() 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Itinerary for {self.destination.name} ({self.num_days} days)"
+        return f"Itinerary for {self.destination} ({self.num_days} days)"
 
 class TagPhrase(models.Model):
     country = models.CharField(max_length=10)

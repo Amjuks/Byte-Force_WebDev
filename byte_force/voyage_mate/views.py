@@ -10,7 +10,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.urls import reverse
 
-from .models import TagPhrase
+from .models import TagPhrase, Itinerary
 
 from dotenv import load_dotenv
 from voyage_mate.travel_schema import TRAVEL_ITINERARY_SCHEMA, TRAVEL_PROMPT
@@ -58,7 +58,6 @@ class IternaryFormView(View):
         info = "\n\n".join(f"{key}\n{value}" for key, value in data.items() if value)
         # For debugging or testing purposes
         info = TRAVEL_PROMPT.format(info)
-        print(info)
 
         response = openai_client.chat.completions.create(
             model="gpt-4o-mini-2024-07-18",
@@ -76,8 +75,18 @@ class IternaryFormView(View):
             ]
         )
 
+        
         context['info'] = json.loads(response.choices[0].message.content)
-        print(context['info'])
+        destination = context['info']['destination']
+        num_days = context['info']['number_of_days']
+        details = '\n\n'.join(str(day) for day in context['info']['itinerary'])
+        
+        Itinerary.objects.create(
+            user=request.user,
+            destination=destination,
+            num_days=num_days,
+            itinerary_details=details,
+        ).save()
 
         return render(request, 'voyage_mate/itinerary.html', context)
 
