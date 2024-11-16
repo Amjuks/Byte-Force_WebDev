@@ -20,6 +20,10 @@ class TagPhraseAPIView(View):
         phrase = TagPhrase.objects.get(country=country).phrase
         return JsonResponse({'phrase': phrase})
 
+class AboutView(View):
+    def get(self, request):
+        return render(request, 'voyage_mate/about.html')
+    
 class IternaryForm(View):
     def get(self, request):
         return render(request, 'voyage_mate/itinerary-form.html')
