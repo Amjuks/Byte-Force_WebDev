@@ -61,7 +61,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'byte_force.wsgi.application'
-ASGI_APPLICATION = " byte_force.routing.application"
+ASGI_APPLICATION = 'byte_force.routing.application'
 
 
 # Database
