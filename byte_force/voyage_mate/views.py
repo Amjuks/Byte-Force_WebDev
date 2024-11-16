@@ -94,8 +94,10 @@ class IternaryFormView(View):
         return render(request, 'voyage_mate/itinerary.html', context)
 
 class CityView(View):
-    def get(self, request):
-        return render(request, 'voyage_mate/city.html')    
+    def get(self, request, city_id: int):
+        context = {}
+        context['city'] = City.objects.get(id=city_id)
+        return render(request, 'voyage_mate/city.html', context)    
 
 class NotificationView(View):
     def get(self, request):

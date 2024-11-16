@@ -11,18 +11,16 @@
 </header>
 
 <section class="city-info">
-    <img src="https://media.istockphoto.com/id/539018660/photo/taj-mahal-hotel-and-gateway-of-india.jpg?s=612x612&w=0&k=20&c=L1LJVrYMS8kj2rJKlQMcUR88vYoAZeWbYIGkcTo6QV0=" alt="Mumbai Skyline">
+    <img src="{{ city.image_url }}" alt="{{ city.place }}">
     <div class="city-summary">
-        <h2>About Mumbai</h2>
-        <p>
-            Mumbai, also known as Bombay, is the financial capital of India and one of the most populous cities in the world. Known for its vibrant culture, bustling streets, and iconic landmarks like the Gateway of India, Mumbai is a melting pot of different cultures, cuisines, and traditions. It is home to Bollywood, the heart of the Indian film industry, and offers a variety of experiences for tourists ranging from historical monuments to modern skyscrapers.
-        </p>
+        <h2>About {{ city.place }}</h2>
+        <p>{{ city.description }}</p>
     </div>
 </section>
 
 <section class="itinerary-section">
     <h3>Plan Your Itinerary</h3>
-    <p>Let us help you create the perfect Mumbai experience!</p>
+    <p>Let us help you create the perfect {{ city.place }} experience!</p>
 
     <form action="{% url 'voyage_mate:itinerary' %}" method="POST">
         <label for="days">Number of Days: </label>
@@ -54,7 +52,7 @@
         </select>
 
         <label for="expectations">What do you expect from your trip? </label>
-        <textarea id="expectations" name="expectations" rows="3" placeholder="Describe your ideal Mumbai experience"></textarea>
+        <textarea id="expectations" name="expectations" rows="3" placeholder="Describe your ideal {{ city.place }} experience"></textarea>
 
         <button type="submit">Submit</button>
     </form>
