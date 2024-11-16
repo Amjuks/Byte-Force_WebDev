@@ -8,7 +8,6 @@
   body {
     font-family: 'Poppins', sans-serif;
     background-color: #f7f7f7;
-    color: #333;
     overflow-x: hidden;
   }
   
@@ -123,42 +122,23 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-  
-  .carousels {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin: 50px 0px; */
-    height: 20rem;
-    width: 100vw;
-    margin: auto;
-    margin: 5px auto;
-    overflow: hidden;
-    background-color: black;
-  }
 
-  
-
-  #carouselSlide {
-    width: 100%;
-  }
-
-  #carouselSlide img {
-    object-fit: cover;
-    width: 100%;
-  }
 
   /* Destinations Section Styles */
   .destinations {
+    background-repeat: no-repeat;
+    background-size: cover;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    padding: 50px 0px;
-    max-width: 1200px;
-    margin: auto;
+    padding: 2rem;
+    /* max-width: 1200px; */
   }
   
-
+.destination-header {
+  text-align: center;
+  grid-column: 1 / -1;
+}
 
   .destination {
     background-color: white;
@@ -208,51 +188,6 @@
   
   footer a:hover {
     text-decoration: underline;
-  }
-  
-  /* Modal Styles */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .modal input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-  }
-  
-  .modal .green-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #1abc9c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .modal .green-btn:hover {
-    background-color: #16a085;
   }
   
   .bell-icon {
