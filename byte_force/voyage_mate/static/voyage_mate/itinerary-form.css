@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f8ff;
+    margin: 0;
+  }
+  
+  .form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  label, select, details, summary {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  select, summary {
+    cursor: pointer;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #f9f9f9;
+  }
+  
+  details[open] .suggestion-content p {
+    display: block;
+  }
+  
+  .suggestions .suggestion-content p {
+    display: none;
+  }
+  
+  .suggestions p[data-budget="low"][data-interest="nature"],
+  .suggestions p[data-budget="medium"][data-interest="culture"],
+  .suggestions p[data-budget="high"][data-interest="beach"] {
+    display: block;
+  }
+  
