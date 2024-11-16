@@ -35,7 +35,7 @@ class Itinerary(models.Model):
 
 class TagPhrase(models.Model):
     country = models.CharField(max_length=10)
-    phrase = models.CharField(max_length=100)  # A short phrase describing the location
+    phrase = models.CharField(max_length=100)  
 
     @classmethod
     def update_phrases(cls):
@@ -43,11 +43,11 @@ class TagPhrase(models.Model):
 
         cls.objects.all().delete()
 
-        for country, phrase in phrases.items():
+        for country, phrase in phrases:
             cls.objects.create(country=country, phrase=phrase).save()
 
     def __str__(self):
-        return f"{self.phrase} for {self.country}"
+        return f"{self.phrase} for {self.destination.name}"
     
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notifications')  
@@ -56,13 +56,14 @@ class Notification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the notification was created
 
     def __str__(self):
-<<<<<<< HEAD
         return f"Notification for {self.user.username} - {self.message[:20]}..."  # Display part of the message
-
-
-   
-
     
-=======
-        return f"Notification for {self.user.username} - {self.message[:20]}..."  # Display part of the message
->>>>>>> f7829add5e600b1c6545cad5c57583a7400831f5
+class Message(models.model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE )
+    message = models.TextField()
+    country = models.CharField(max_length=200)
+
+
+    def __str__(self):
+        return f"Message from {self.user.username} in {self.country}"
+    
