@@ -1,0 +1,141 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1e2a38;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+.city-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+    justify-content: center;
+}
+
+.city-info img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 2rem;
+    max-width: 50%;
+}
+
+.city-summary {
+    max-width: 50%;
+}
+
+.city-summary h2 {
+    color: #1e2a38;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.city-summary p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.itinerary-section {
+    text-align: center;
+    margin: 2rem 0;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.itinerary-section form {
+    margin: 1rem 0;
+}
+
+.itinerary-section label {
+    font-size: 1.1rem;
+}
+
+.itinerary-section input {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    width: 50px;
+    text-align: center;
+}
+
+.itinerary-section button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: #1e2a38;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.itinerary-section button:hover {
+    background-color: #34495e;
+}
+
+#itinerary-message {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.travel-links {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.travel-links .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.travel-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #1e2a38;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.travel-button:hover {
+    background-color: #34495e;
+}
+
+footer {
+    text-align: center;
+    background-color: #1e2a38;
+    color: #fff;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 1rem;
+}
