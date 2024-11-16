@@ -1,29 +1,70 @@
 {% load static %}
-<div class="destination">
-    <img src="https://source.unsplash.com/300x200/?tokyo" alt="Tokyo">
-    <h3>Tokyo, Japan</h3>
-  </div>
-  <div class="destination">
-    <img src="https://source.unsplash.com/300x200/?newyork" alt="New York">
-    <h3>New York, USA</h3>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Your Next Adventure</title>
+  <link rel="stylesheet" href="{% static 'voyage_mate/index.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- Testimonials -->
-<section class="testimonials container">
-  <div class="testimonial">
-    <p>"The best travel experience I've ever had! Highly recommend."</p>
-    <h3>- Alex Johnson</h3>
-  </div>
-  <div class="testimonial">
-    <p>"Unforgettable adventures and amazing destinations!"</p>
-    <h3>- Sarah Lee</h3>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Find Your Perfect Getaway</h1>
+      <p>Discover beautiful destinations around the world</p>
+      <button class="explore-button">Explore Now</button>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2024 Explore the World. All rights reserved.</p>
-</footer>
+  <!-- Popular Destinations -->
+  <section class="destinations">
+    <h2>Popular Destinations</h2>
+    <div class="destination-grid">
+      <div class="destination-card">
+        <img src="https://source.unsplash.com/300x300/?paris" alt="Paris">
+        <h3>Paris</h3>
+      </div>
+      <div class="destination-card">
+        <img src="https://source.unsplash.com/300x300/?maldives" alt="Maldives">
+        <h3>Maldives</h3>
+      </div>
+      <div class="destination-card">
+        <img src="https://source.unsplash.com/300x300/?bali" alt="Bali">
+        <h3>Bali</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial">
+      <p>"An unforgettable experience! Beautiful views and excellent service."</p>
+      <h3>- Emily R.</h3>
+    </div>
+    <div class="testimonial">
+      <p>"The best trip I've ever had. Everything was perfect."</p>
+      <h3>- Daniel K.</h3>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Discover Your Next Adventure. All rights reserved.</p>
+  </footer>
 </body>
 </html>
