@@ -12,10 +12,11 @@
 
 <div class="form-container">
   <h2>Travel Preferences Form</h2>
-  <form>
+  <form action="{% url 'voyage_mate:itinerary' %}" method="post">
+      {% csrf_token %}
       <!-- Country Selection -->
       <label for="country">Which country do you want to travel?</label>
-      <select id="country" name="country">
+      <select id="country" name="country" required>
           <option value="" disabled selected>Select a country</option>
           <option value="USA">USA</option>
           <option value="France">France</option>
@@ -31,7 +32,7 @@
 
       <!-- Travel Days -->
       <label for="days">How many days are you planning to travel?</label>
-      <input type="number" id="days" name="days" min="1" placeholder="Enter number of days">
+      <input type="number" id="days" name="days" min="1" placeholder="Enter number of days" required>
 
       <!-- Budget -->
       <label for="budget">What is your budget?</label>
@@ -62,7 +63,7 @@
 
       <!-- Travel Companions -->
       <label for="companions">Travelling with:</label>
-      <select id="companions" name="companions">
+      <select id="companions" name="companions" required>
           <option value="" disabled selected>Select companions</option>
           <option value="friends">Friends</option>
           <option value="family">Family</option>
@@ -74,7 +75,7 @@
 
       <!-- Accommodation Type -->
       <label for="accommodation">Preferred Accommodation Type</label>
-      <select id="accommodation" name="accommodation">
+      <select id="accommodation" name="accommodation" required>
           <option value="" disabled selected>Select accommodation type</option>
           <option value="hotel">Hotel</option>
           <option value="hostel">Hostel</option>

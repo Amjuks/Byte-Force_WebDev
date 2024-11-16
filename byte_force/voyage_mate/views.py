@@ -1,14 +1,25 @@
+import os
 import json
+import openai
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.http import JsonResponse, HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.urls import reverse
 
 from .models import TagPhrase
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_client = openai.OpenAI(api_key=openai_api_key)
+
+
 
 # Create your views here.
 class IndexView(View):
@@ -24,9 +35,29 @@ class AboutView(View):
     def get(self, request):
         return render(request, 'voyage_mate/about.html')
     
-class IternaryForm(View):
+class IternaryFormView(View):
     def get(self, request):
         return render(request, 'voyage_mate/itinerary-form.html')
+
+    def post(self, request):
+        data = {
+            "Which country do you want to travel?": request.POST.get('country', ''),
+            "How many days are you planning to travel?": request.POST.get('days', ''),
+            "What is your budget?": request.POST.get('budget', ''),
+            "What are your interests in travelling?": request.POST.get('interests', ''),
+            "Travelling with:": request.POST.get('companions', ''),
+            "Preferred Accommodation Type": request.POST.get('accommodation', ''),
+            "Preferred Travel Season": request.POST.get('season', ''),
+            "Preferred Activity Level": request.POST.get('activity', ''),
+            "Dietary Preferences/Restrictions": request.POST.get('diet', ''),
+            "Preferred Mode of Transportation": request.POST.get('transport', ''),
+        }
+        
+        info = "\n\n".join(f"{key}\n{value}" for key, value in data.items() if value)
+        # For debugging or testing purposes
+        print(info)
+
+        return redirect(reverse("voyage_mate:itinerary"))
 
 class NotificationView(View):
     def get(self, request):

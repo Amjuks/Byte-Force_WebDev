@@ -56,11 +56,16 @@ const messages = [
     return messages[randomIndex];
   }
 
-  // Show the toast with a random message at specific intervals (e.g., every 5 seconds)
-  setInterval(() => {
+  function showPopUp() {
     toastBody.textContent = getRandomMessage(); // Update the message in the toast
     toast.show(); // Display the toast
-  }, 1200); // 5000 milliseconds = 5 seconds
+  }
+
+  showPopUp();
+  // Show the toast with a random message at specific intervals (e.g., every 5 seconds)
+  setInterval(() => {
+    showPopUp();
+  }, 20000); // 5000 milliseconds = 5 seconds
 
   // Optional: If you want to show the toast once when a button is clicked:
   document.getElementById('liveToastBtn').addEventListener('click', () => {

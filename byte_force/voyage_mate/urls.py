@@ -10,7 +10,7 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('about/', views.AboutView.as_view(), name='about'),
     
-    path('itinerary/', views.IternaryForm.as_view(), name='itinerary'),
+    path('itinerary/', views.IternaryFormView.as_view(), name='itinerary'),
     path('notification/', views.NotificationView.as_view(), name='notification'),
 
     path('', views.IndexView.as_view(), name='index'),
