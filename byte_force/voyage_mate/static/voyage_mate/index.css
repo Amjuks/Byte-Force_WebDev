@@ -39,7 +39,8 @@
     margin: 0 20px;
   }
   
-  nav ul li a {
+  nav ul li a,
+  .nav-link {
     color: white;
     font-size: 18px;
     font-weight: 600;
@@ -56,7 +57,7 @@
     justify-content: flex-end;
   }
   
-  nav .auth-buttons button {
+  nav .auth-buttons .green-btn {
     background-color: #1abc9c;
     color: white;
     padding: 10px 20px;
@@ -66,13 +67,18 @@
     margin-left: 15px;
   }
   
-  nav .auth-buttons button:hover {
+
+  nav .auth-buttons .green-btn:hover {
     background-color: #16a085;
+  }
+
+  .nav-link {
+    padding: 0 1rem;
   }
   
   /* Hero Section Styles */
   .hero {
-    background-image: url('https://source.unsplash.com/1600x900/?travel');
+    background-image: url("{% static 'voyage_mate/images/bangkok.jpeg'  %}");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -98,7 +104,7 @@
     animation: fadeIn 2s ease-in-out 1s;
   }
   
-  .hero button {
+  .hero .green-btn {
     padding: 15px 30px;
     font-size: 18px;
     background-color: #1abc9c;
@@ -109,7 +115,7 @@
     transition: background-color 0.3s ease;
   }
   
-  .hero button:hover {
+  .hero .green-btn:hover {
     background-color: #16a085;
   }
   
@@ -118,16 +124,42 @@
     100% { opacity: 1; }
   }
   
+  .carousels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 50px 0px; */
+    height: 20rem;
+    width: 100vw;
+    margin: auto;
+    margin: 5px auto;
+    overflow: hidden;
+    background-color: black;
+  }
+
+  
+
+  #carouselSlide {
+    width: 100%;
+  }
+
+  #carouselSlide img {
+    object-fit: cover;
+    width: 100%;
+  }
+
   /* Destinations Section Styles */
   .destinations {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    padding: 50px 20px;
+    padding: 50px 0px;
     max-width: 1200px;
     margin: auto;
   }
   
+
+
   .destination {
     background-color: white;
     border-radius: 8px;
@@ -208,7 +240,7 @@
     border: 1px solid #ddd;
   }
   
-  .modal button {
+  .modal .green-btn {
     width: 100%;
     padding: 10px;
     background-color: #1abc9c;
@@ -219,7 +251,7 @@
     margin-top: 10px;
   }
   
-  .modal button:hover {
+  .modal .green-btn:hover {
     background-color: #16a085;
   }
   

@@ -1,0 +1,138 @@
+{% extends "voyage_mate/base.html" %}
+{% load static %}
+
+{% block styles %}
+<title>Travel Itinerary Suggestions</title>
+
+  <link rel="stylesheet" href="{% static 'voyage_mate/itinerary-form.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="form-container">
+  <h2>Travel Preferences Form</h2>
+  <form>
+      <!-- Country Selection -->
+      <label for="country">Which country do you want to travel?</label>
+      <select id="country" name="country">
+          <option value="" disabled selected>Select a country</option>
+          <option value="USA">USA</option>
+          <option value="France">France</option>
+          <option value="Japan">Japan</option>
+          <option value="Australia">Australia</option>
+          <option value="Italy">Italy</option>
+          <option value="New Zealand">New Zealand</option>
+          <option value="Canada">Canada</option>
+          <option value="Switzerland">Switzerland</option>
+          <option value="South Africa">South Africa</option>
+          <option value="Thailand">Thailand</option>
+      </select>
+
+      <!-- Travel Days -->
+      <label for="days">How many days are you planning to travel?</label>
+      <input type="number" id="days" name="days" min="1" placeholder="Enter number of days">
+
+      <!-- Budget -->
+      <label for="budget">What is your budget?</label>
+      <select id="budget" name="budget">
+          <option value="" disabled selected>Select a budget</option>
+          <option value="low">Low (Economical)</option>
+          <option value="medium">Medium (Standard)</option>
+          <option value="high">High (Luxury)</option>
+          <option value="extravagant">Extravagant</option>
+          <option value="backpacking">Backpacking</option>
+      </select>
+
+      <!-- Interests -->
+      <label for="interests">What are your interests in travelling?</label>
+      <select id="interests" name="interests">
+          <option value="" disabled selected>Select an interest</option>
+          <option value="adventure">Adventure</option>
+          <option value="culture">Culture & Heritage</option>
+          <option value="nature">Nature & Wildlife</option>
+          <option value="relaxation">Relaxation & Wellness</option>
+          <option value="food">Culinary Experiences</option>
+          <option value="sports">Sports & Outdoors</option>
+          <option value="city-life">City Exploration</option>
+          <option value="beaches">Beaches & Sun</option>
+          <option value="shopping">Shopping</option>
+          <option value="photography">Photography & Scenery</option>
+      </select>
+
+      <!-- Travel Companions -->
+      <label for="companions">Travelling with:</label>
+      <select id="companions" name="companions">
+          <option value="" disabled selected>Select companions</option>
+          <option value="friends">Friends</option>
+          <option value="family">Family</option>
+          <option value="solo">Solo</option>
+          <option value="colleagues">Colleagues</option>
+          <option value="partner">Partner</option>
+          <option value="tour-group">Tour Group</option>
+      </select>
+
+      <!-- Accommodation Type -->
+      <label for="accommodation">Preferred Accommodation Type</label>
+      <select id="accommodation" name="accommodation">
+          <option value="" disabled selected>Select accommodation type</option>
+          <option value="hotel">Hotel</option>
+          <option value="hostel">Hostel</option>
+          <option value="resort">Resort</option>
+          <option value="cabin">Cabin</option>
+          <option value="homestay">Homestay</option>
+          <option value="camping">Camping</option>
+          <option value="bed-breakfast">Bed & Breakfast</option>
+      </select>
+
+      <!-- Travel Season -->
+      <label for="season">Preferred Travel Season</label>
+      <select id="season" name="season">
+          <option value="" disabled selected>Select travel season</option>
+          <option value="spring">Spring</option>
+          <option value="summer">Summer</option>
+          <option value="autumn">Autumn</option>
+          <option value="winter">Winter</option>
+          <option value="year-round">Year-Round Traveler</option>
+      </select>
+
+      <!-- Activity Level -->
+      <label for="activity">Preferred Activity Level</label>
+      <select id="activity" name="activity">
+          <option value="" disabled selected>Select activity level</option>
+          <option value="relaxed">Relaxed (Leisure)</option>
+          <option value="moderate">Moderate (Some Exploration)</option>
+          <option value="active">Active (Hiking, Sports)</option>
+          <option value="high-energy">High-Energy (Adventure, Challenges)</option>
+      </select>
+
+      <!-- Dietary Restrictions -->
+      <label for="diet">Dietary Preferences/Restrictions</label>
+      <select id="diet" name="diet">
+          <option value="" disabled selected>Select dietary preference</option>
+          <option value="none">None</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="gluten-free">Gluten-Free</option>
+          <option value="halal">Halal</option>
+          <option value="kosher">Kosher</option>
+      </select>
+
+      <!-- Transportation Preferences -->
+      <label for="transport">Preferred Mode of Transportation</label>
+      <select id="transport" name="transport">
+          <option value="" disabled selected>Select transportation mode</option>
+          <option value="airplane">Airplane</option>
+          <option value="train">Train</option>
+          <option value="car-rental">Car Rental</option>
+          <option value="bus">Bus</option>
+          <option value="bike">Bicycle</option>
+          <option value="walking">Walking</option>
+          <option value="cruise">Cruise/Boat</option>
+      </select>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}
