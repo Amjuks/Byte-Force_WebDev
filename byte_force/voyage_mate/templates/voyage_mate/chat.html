@@ -4,40 +4,18 @@
 {% block styles %}
 <link rel="stylesheet" href="{% static 'voyage_mate/chat.css' %}">
 {% endblock %}
-<!-- 
-    <div class="chat-container">
-        <div class="chat-box" id="chat-box"></div>
-        <div class="chat-input-container">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button id="send-btn">Send</button>
-        </div>
-    </div>
 
-    <script src="script.js"></script>
- -->
-<!-- chat.html -->
 
 {% block content %}
-<div id="chat-log"></div>
-<input id="chat-message-input" type="text">
-<button id="chat-message-input-send">Send</button>
 
-<script>
-const roomName = "example_room";  // Replace with dynamic room names
-const chatSocket = new WebSocket(
-    'ws://' + window.location.host + '/ws/chat/' + roomName + '/'
-);
+<div class="chat-container">
+    <div class="chat-box" id="chat-box"></div>
+    <div class="chat-input-container">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-btn">Send</button>
+    </div>
+</div>
 
-chatSocket.onmessage = function(e) {
-    const data = JSON.parse(e.data);
-    document.querySelector('#chat-log').innerHTML += '<p>' + data.message + '</p>';
-};
-
-document.querySelector('#chat-message-input-send').onclick = function(e) {
-    const messageInputDom = document.querySelector('#chat-message-input');
-    const message = messageInputDom.value;
-    chatSocket.send(JSON.stringify({ 'message': message }));
-    messageInputDom.value = '';
-};
-</script>
+<script src="{% static 'voyage_mate/ja/chat.js' %}"></script>
+ 
 {% endblock %}
