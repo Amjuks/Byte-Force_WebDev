@@ -19,7 +19,11 @@ class TagPhraseAPIView(View):
     def get(self, request, country: str):
         phrase = TagPhrase.objects.get(country=country).phrase
         return JsonResponse({'phrase': phrase})
-    
+
+class IternaryForm(View):
+    def get(self, request):
+        return render(request, 'voyage_mate/itinerary-form.html')
+
 class LoginView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         return render(request, 'voyage_mate/sign-in.html')

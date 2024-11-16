@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel Itinerary Suggestions</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+{% extends "voyage_mate/base.html" %}
+{% load static %}
+
+{% block styles %}
+<title>Travel Itinerary Suggestions</title>
+
+  <link rel="stylesheet" href="{% static 'voyage_mate/itinerary-form.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
   <div class="form-container">
     <h2>Plan Your Perfect Trip</h2>
     
@@ -60,5 +63,4 @@
       </details>
     </details>
   </div>
-</body>
-</html>
+{% endblock %}

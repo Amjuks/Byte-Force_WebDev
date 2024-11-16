@@ -9,6 +9,8 @@ urlpatterns = [
     path('register/', views.RegisterView.as_view(), name='register'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
     
+    path('itinerary/', views.IternaryForm.as_view(), name='itinerary'),
+
     path('', views.IndexView.as_view(), name='index'),
     path('phrase/<str:country>', views.TagPhraseAPIView.as_view(), name='phrase')
 ]
