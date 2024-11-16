@@ -10,7 +10,7 @@ class Destination(models.Model):
     image_url=models.URLField()
 
     def __str__(self):
-        return self.name 
+        return self.place 
     
 class Review(models.Model):
     destination = models.ForeignKey(Destination, related_name='reviews', on_delete=models.CASCADE)  # Links to the destination being reviewed
@@ -66,4 +66,11 @@ class Message(models.Model):
 
     def __str__(self):
         return f"Message from {self.user.username} in {self.country}"
+    
+class City(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE )
+    place = models.CharField(max_length=255)
+    description= models.TextField()
+    image_url=models.URLField()
+    
     
