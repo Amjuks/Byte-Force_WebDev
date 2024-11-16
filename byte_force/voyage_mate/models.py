@@ -2,10 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-...
 class Destination(models.Model):
-    Place = models.CharField(max_length=255)
-    description= models.TextField(max_lenght=255)
+    place = models.CharField(max_length=255)
+    description= models.TextField(max_length=255)
     image_url=models.URLField()
 
     def __str__(self):
@@ -19,6 +18,7 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # set the date/time of  when the review was created
 
     def __str__(self):
+<<<<<<< HEAD
         return f'Review by {self.user.username} for {self.destination.name}'  # display of the review
     
 
@@ -58,3 +58,6 @@ class Notification(models.Model):
    
 
     
+=======
+        return f'Review by {self.user.username} for {self.destination.name}'  # display of the review
+>>>>>>> 060f05e8527d9db733d4aca31ad0a699bb5dbaa6
