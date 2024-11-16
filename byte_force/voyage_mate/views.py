@@ -1,5 +1,6 @@
 import json
 
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
 
@@ -9,8 +10,13 @@ from .models import TagPhrase
 class IndexView(View):
     def get(self, request):
 
-        phrases = json.load(open("voyage_mate/tag_phrases.json"))
-        print(phrases["IN"])
 
-        
+        print(TagPhrase.objects.get(country="IN"))
         return render(request, 'voyage_mate/index.html')
+    
+
+class TagPhraseAPIView(View):
+    def get(self, request, country: str):
+        
+        phrase = TagPhrase.objects.get(country=country)
+        return JsonResponse({'phrase': phrase})
