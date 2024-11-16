@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Destination(models.Model):
     place = models.CharField(max_length=255)
-    description= models.TextField(max_length=255)
+    description= models.TextField()
     image_url=models.URLField()
 
     def __str__(self):
@@ -35,7 +35,7 @@ class Itinerary(models.Model):
 
 class TagPhrase(models.Model):
     country = models.CharField(max_length=10)
-    phrase = models.CharField(max_length=100)  # A short phrase describing the location
+    phrase = models.CharField(max_length=100)  
 
     @classmethod
     def update_phrases(cls):
@@ -43,7 +43,7 @@ class TagPhrase(models.Model):
 
         cls.objects.all().delete()
 
-        for country, phrase in phrases.items():
+        for country, phrase in phrases:
             cls.objects.create(country=country, phrase=phrase).save()
 
     def __str__(self):
@@ -57,3 +57,13 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"Notification for {self.user.username} - {self.message[:20]}..."  # Display part of the message
+    
+class Message(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE )
+    message = models.TextField()
+    country = models.CharField(max_length=200)
+
+
+    def __str__(self):
+        return f"Message from {self.user.username} in {self.country}"
+    
