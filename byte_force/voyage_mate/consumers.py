@@ -3,6 +3,8 @@ import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 from .models import ChatRoom, ChatMessage
 from datetime import datetime
+from channels.db import database_sync_to_async
+
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -28,16 +30,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 'timestamp': message.timestamp.isoformat()
             }))
 
-            # Send previous messages to the user
-        previous_messages = await database_sync_to_async(self.get_previous_messages)(room)
-
-# Send previous messages to the WebSocket
-        for message in previous_messages:
-         await self.send(text_data=json.dumps({
-              'message': message.message,
-              'user': message.user,
-              'timestamp': message.timestamp.isoformat()
-    }))
+            
 
 
             

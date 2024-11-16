@@ -7,6 +7,7 @@ from django.http import JsonResponse, HttpRequest, HttpResponse, HttpResponseRed
 from django.shortcuts import render
 from django.views import View
 from django.urls import reverse
+from .models import ChatRoom, ChatMessage
 
 from .models import TagPhrase
 
@@ -78,3 +79,11 @@ class LogoutView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         logout(request)
         return HttpResponseRedirect(reverse("voyage_mate:index"))
+    
+def chat_room(request, room_name):
+    room, created = ChatRoom.objects.get_or_create(name=room_name)
+    messages = ChatMessage.objects.filter(room=room).order_by('-timestamp')[:10]
+    return render(request, 'chat_room.html', {
+        'room_name': room_name,
+        'messages': messages
+    })
