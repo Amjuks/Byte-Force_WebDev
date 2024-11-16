@@ -132,8 +132,9 @@
     height: 20rem;
     width: 100vw;
     margin: auto;
-    margin: 50px auto;
+    margin: 5px auto;
     overflow: hidden;
+    background-color: black;
   }
 
   
