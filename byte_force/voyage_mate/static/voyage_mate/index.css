@@ -141,6 +141,7 @@
 }
 
   .destination {
+    color: black;
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
