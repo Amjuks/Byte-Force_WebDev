@@ -41,12 +41,14 @@ class AboutView(View):
     
 class IternaryFormView(View):
     def get(self, request):
-        return render(request, 'voyage_mate/itinerary-form.html')
+        context = {}
+        context['cities'] = [city.place for city in City.objects.all()]
+        return render(request, 'voyage_mate/itinerary-form.html', context)
 
     def post(self, request):
         context = {}
         data = {
-            "Which country do you want to travel?": request.POST.get('country', ''),
+            "Where do you want to travel?": request.POST.get('destination', ''),
             "How many days are you planning to travel?": request.POST.get('days', ''),
             "What is your budget?": request.POST.get('budget', ''),
             "What are your interests in travelling?": request.POST.get('interests', ''),

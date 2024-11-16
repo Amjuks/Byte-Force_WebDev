@@ -23,6 +23,10 @@
     <p>Let us help you create the perfect {{ city.place }} experience!</p>
 
     <form action="{% url 'voyage_mate:itinerary' %}" method="POST">
+        {% csrf_token %}
+
+        <input type="hidden" id="destination" name="destination" value="{{ city.place }}" required readonly>
+
         <label for="days">Number of Days: </label>
         <input type="number" id="days" name="days" min="1" required>
 

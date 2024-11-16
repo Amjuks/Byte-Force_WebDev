@@ -15,19 +15,12 @@
   <form action="{% url 'voyage_mate:itinerary' %}" method="post">
       {% csrf_token %}
       <!-- Country Selection -->
-      <label for="country">Which country do you want to travel?</label>
-      <select id="country" name="country" required>
-          <option value="" disabled selected>Select a country</option>
-          <option value="USA">USA</option>
-          <option value="France">France</option>
-          <option value="Japan">Japan</option>
-          <option value="Australia">Australia</option>
-          <option value="Italy">Italy</option>
-          <option value="New Zealand">New Zealand</option>
-          <option value="Canada">Canada</option>
-          <option value="Switzerland">Switzerland</option>
-          <option value="South Africa">South Africa</option>
-          <option value="Thailand">Thailand</option>
+      <label for="country">Where do you want to travel?</label>
+      <select id="destination" name="destination" required>
+        <option value="" disabled selected>Select a City</option>
+        {% for city in cities %}
+          <option value="{{ city }}">{{ city }}</option>
+        {% endfor %}
       </select>
 
       <!-- Travel Days -->
