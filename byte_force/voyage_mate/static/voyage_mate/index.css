@@ -202,3 +202,47 @@
   .bell-icon {
     color: white;
    }
+
+.reviews-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: beige;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review {
+    flex: 1;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.review:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.review h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.review p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+}
+
+.reviews-header {
+  margin: 0;
+  padding: 1rem 0;
+  text-align: center;
+  background-color: beige;
+}

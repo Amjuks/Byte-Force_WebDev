@@ -10,11 +10,12 @@ urlpatterns = [
     path('logout/', views.LogoutView.as_view(), name='logout'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('chat/', views.ChatView.as_view(), name='chat'),
-    path('city/<str:city_id>', views.CityView.as_view(), name='city'),
+    path('city/<int:city_id>', views.CityView.as_view(), name='city'),
     
 
     path('itinerary/', views.IternaryFormView.as_view(), name='itinerary'),
     path('notification/', views.NotificationView.as_view(), name='notification'),
+    path('review/<int:city_id>', views.ReviewView.as_view(), name='reviews'),
 
     path('', views.IndexView.as_view(), name='index'),
     path('phrase/<str:country>', views.TagPhraseAPIView.as_view(), name='phrase')

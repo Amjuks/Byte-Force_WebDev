@@ -18,6 +18,17 @@
     </div>
 </section>
 
+<h1 class="reviews-header">Adventures in {{city}}: What Travelers Say!</h1>
+
+<div class="reviews-container">
+    {% for review in reviews %}
+    <div class="review">
+      <h3>{{ review.user.username }}</h3>
+      <p>{{ review.text }}</p>
+  </div>
+    {% endfor %}
+</div>
+
 <section class="itinerary-section">
     <h3>Plan Your Itinerary</h3>
     <p>Let us help you create the perfect {{ city.place }} experience!</p>
@@ -59,6 +70,18 @@
         <textarea id="expectations" name="expectations" rows="3" placeholder="Describe your ideal {{ city.place }} experience"></textarea>
 
         <button type="submit">Submit</button>
+    </form>
+</section>
+
+<section class="share-experience">
+    <h3>Share Your Experience in {{ city.place }}</h3>
+    <p>We’d love to hear about your memories and adventures in {{ city.place }}!</p>
+
+    <form action="{% url 'voyage_mate:reviews' city.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="city_id" value="{{ city.id }}">
+        <textarea id="experience" name="experience" rows="5" placeholder="Describe your most memorable experience in {{ city.place }}!" required></textarea>
+        <button type="submit">Submit Your Story</button>
     </form>
 </section>
 

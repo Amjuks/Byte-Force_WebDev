@@ -6,12 +6,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.http import JsonResponse, HttpRequest, HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.urls import reverse
 from .models import ChatRoom, ChatMessage
 
-from .models import TagPhrase, Itinerary, City
+from .models import TagPhrase, Itinerary, City, Review
 
 from dotenv import load_dotenv
 from voyage_mate.travel_schema import TRAVEL_ITINERARY_SCHEMA, TRAVEL_PROMPT
@@ -27,7 +27,8 @@ openai_client = openai.OpenAI(api_key=openai_api_key)
 class IndexView(View):
     def get(self, request):
         context = {}
-        context['cities'] = City.objects.all()[:9]
+        context['cities'] = City.objects.all().order_by('?')[:9]
+        context['reviews'] = Review.objects.all().order_by('?')[:3]
         return render(request, 'voyage_mate/index.html', context)
     
 class TagPhraseAPIView(View):
@@ -39,6 +40,24 @@ class AboutView(View):
     def get(self, request):
         return render(request, 'voyage_mate/about.html')
     
+
+class ReviewView(View):
+    def post(self, request, city_id: int):
+        city = get_object_or_404(City, id=city_id)
+        text = request.POST.get('experience')
+
+        if text:
+            Review.objects.create(
+                destination=city,
+                user=request.user,
+                text=text
+            )
+
+            return redirect(reverse('voyage_mate:city', args=[city_id]))
+        
+        return redirect(reverse('voyage_mate:city', args=[city_id]))
+
+
 class IternaryFormView(View):
     def get(self, request):
         context = {}
@@ -99,6 +118,7 @@ class CityView(View):
     def get(self, request, city_id: int):
         context = {}
         context['city'] = City.objects.get(id=city_id)
+        context['reviews'] = Review.objects.filter(destination=context['city']).order_by('?')[:3]
         return render(request, 'voyage_mate/city.html', context)    
 
 class NotificationView(View):

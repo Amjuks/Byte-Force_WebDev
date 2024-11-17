@@ -14,9 +14,8 @@ class Destination(models.Model):
         return self.place 
     
 class Review(models.Model):
-    destination = models.ForeignKey(Destination, related_name='reviews', on_delete=models.CASCADE)  # Links to the destination being reviewed
+    destination = models.ForeignKey('City', related_name='reviews', on_delete=models.CASCADE)  # Links to the destination being reviewed
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Links to the user who wrote the review
-    rating = models.IntegerField()  # Rating given to the destination (1-5)
     text = models.TextField()  # The actual review text
     created_at = models.DateTimeField(auto_now_add=True)  # set the date/time of  when the review was created
 
