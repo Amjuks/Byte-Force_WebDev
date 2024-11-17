@@ -21,7 +21,7 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # set the date/time of  when the review was created
 
     def __str__(self):
-        return f'Review by {self.user.username} for {self.destination.name}'  # display of the review
+        return f'Review by {self.user.username} for {self.destination.place}'  # display of the review
     
 class Itinerary(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True, blank=True)  
