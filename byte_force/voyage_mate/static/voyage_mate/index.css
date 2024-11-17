@@ -32,6 +32,7 @@
     display: flex;
     justify-content: flex-start;
     list-style: none;
+    margin: 0;
   }
   
   nav ul li {
@@ -40,6 +41,8 @@
   
   nav ul li a,
   .nav-link {
+    display: flex;
+    align-items: center;
     color: white;
     font-size: 18px;
     font-weight: 600;
@@ -199,8 +202,16 @@
     text-decoration: underline;
   }
   
-  .bell-icon {
+  .nav-brand {
     color: white;
+    font-size: 2rem;
+  }
+
+  .bell-icon {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 0 1rem;
    }
 
 .reviews-container {
