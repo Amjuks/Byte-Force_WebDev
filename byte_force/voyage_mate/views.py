@@ -124,6 +124,9 @@ class CityView(View):
 class NotificationView(View):
     def get(self, request):
         return render(request, 'voyage_mate/notifications.html')
+    
+    def post(self, request):
+        ...
 
 class ChatView(View):
     def get(self, request):
