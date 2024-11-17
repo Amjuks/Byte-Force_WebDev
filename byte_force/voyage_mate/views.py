@@ -103,10 +103,7 @@ class IternaryFormView(View):
         context['info'] = json.loads(response.choices[0].message.content)
         destination = context['info']['destination']
         num_days = context['info']['number_of_days']
-        try:
-            details = '\n\n'.join(day for day in context['info']['itinerary'])
-        except:
-            details = '\n\n'.join(day for day in context['info']['itinerary'].values())
+        details = '\n\n'.join(str(day) for day in context['info']['itinerary'])
 
         Itinerary.objects.create(
             user=request.user,
